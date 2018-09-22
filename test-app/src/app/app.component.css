@@ -1,3 +1,119 @@
 .active {
-  color: red;
+  border-left: 4px solid #FF2B5B;
+  margin-left: -3px;
+  width: calc(100% + 3px) !important;
+}
+.central-block{
+  width: 82%;
+}
+.left-block{
+  max-width: 45%;
+  margin: 30px;
+  margin-right: 5px;
+  box-shadow: 0px 0px 2px 2px #ccc;
+  padding: 0px;
+}
+form {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+.left-block h2{
+  margin-top: 10px;
+  margin-left: 5px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  padding-left: 20px;
+}
+.right-block{
+  max-width: 45%;
+  margin: 30px;
+  margin-left: 15px;
+  box-shadow: 0px 0px 2px 2px #ccc;
+}
+.comment-input{
+  width: 70%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.submit-button{
+  margin-left: 10px;
+  width: 27%;
+  padding-top: 6px;
+  border-radius: 3px;
+  color: white;
+  background: #00CCC0;
+  padding-bottom: 6px;
+  border: 0px;
+}
+.central-block-row{
+  display: block;
+  width: 100%;
+}
+.central-table-item{
+  display: block;
+  float: left;
+  width: 100%;
+}
+.left-text{
+  float: left;
+  font-size: 20px;
+  padding-top: 10px;
+}
+.delete-button{
+  float: right;
+  margin-top: 10px;
+  border: 1px solid #FF2B5B;
+  border-radius: 4px;
+  padding-bottom: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 2px;
+  color: #FF2B5B;
+  font-size: 18px;
+}
+.inside-block{
+  margin-left: 20px;
+  border-bottom: 1px solid #e4e0e0;
+  display: block;
+  margin-right: 20px;
+  height: 55px;
+}
+.counter{
+  float: left;
+  margin-top: 18px;
+  margin-left: 15px;
+  border-radius: 30px;
+  background: #00CCC0;
+  padding-left: 10px;
+  font-size: 13px;
+  color: white;
+  padding-right: 10px;
+}
+.right-block h2{
+  margin-top: 10px;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+.squere{
+  height: 50px;
+  float: left;
+  width: 20%;
+}
+.comment{
+  float: left;
+  width: 80%;
+}
+.main-squere{
+  height: 50px;
+  width: 50px;
 }

@@ -1,28 +1,45 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="row">
-  <div class="col-sm-6">
-    <h2>Items</h2>
-    <form class="settings__user-block" [formGroup]="chapterForm" (ngSubmit)="addChapter()">
-      <input type="text" formControlName="chapterInput" class="settings__user-input settings__user-input_name" placeholder="Type name here..."
-      />
-    </form>
-    <div *ngIf="chapterList.length">
-      {{chapterList}}
-      <div *ngFor="let chapter of chapterList">
-        <div (click)="selectCurrentChapter(chapter)" [ngClass]="{'active': chapter == currentChapter}"> {{chapter.title}} </div>
-        <button (click)="deleteCurrentChapter(chapter)"> delete </button>
+  <app-sidebar></app-sidebar>
+  <div class="row central-block">
+    <div class="col-sm-6 left-block">
+      <h2>Items</h2>
+      <form class="settings__user-block" [formGroup]="chapterForm" (ngSubmit)="addChapter()">
+        <input type="text" formControlName="chapterInput" class="comment-input" placeholder="Type name here..." />
+        <button class="submit-button" (click)="addChapter()"> Add new </button>
+      </form>
+      <div *ngIf="chapterList.length" class="central-block-row">
+        <div *ngFor="let chapter of chapterList">
+          <div class="central-table-item" [ngClass]="{'active': chapter == currentChapter}">
+            <div class="inside-block" (click)="selectCurrentChapter(chapter)">
+              <div class="left-text"> {{chapter.title}} </div>
+              <div class="counter">{{chapter.comments.length}} </div>
+              <button class="delete-button" (click)="deleteCurrentChapter(chapter)"> Delete </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-6">
-    qwerty2
-    <div *ngIf="currentChapter">
-      <div *ngFor="let comment of currentChapter.comment ">
-        {{comment.description}}
+    <div class="col-sm-6 right-block">
+      <h2> Comments # {{chapterList.indexOf(currentChapter)+1}} </h2>
+      <div *ngIf="currentChapter">
+        <div *ngFor="let comment of currentChapter.comments ">
+          <div class="comment-center">
+            <div class="squere">
+              {{currentChapter.comments.indexOf(comment)}}
+              <div class="main-squere" [ngClass]="{'orange-color': currentChapter.comments.indexOf(comment) % 2 == 0}">
+              </div>
+            </div>
+            <div class="comment">
+              {{comment}}
+            </div>
+          </div>
+
+        </div>
+        <form (keydown)="addComment($event)" class="settings__user-block" [formGroup]="commentForm" (ngSubmit)="addComment()">
+          <textarea formControlName="commentDescription">Hello, Froala!</textarea>
+        </form>
       </div>
-      <form (keydown)="keyDownFunction($event)" class="settings__user-block" [formGroup]="commentForm" (ngSubmit)="addComment()">
-        <textarea formControlName="commentDescription">Hello, Froala!</textarea>
-      </form>
     </div>
   </div>
 </div>
