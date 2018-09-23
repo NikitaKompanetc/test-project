@@ -28,20 +28,17 @@ export class AppComponent implements OnInit {
   }
 
   selectCurrentChapter(chapter): void {
-    console.log(18, chapter);
     this.currentChapter = chapter;
   }
 
   deleteCurrentChapter(chapter): void {
     this.chapterList.splice(this.chapterList.indexOf(chapter), 1);
+    this.currentChapter = this.chapterList[0];
     this.pushToLocalStorage();
   }
 
   addComment(event): void {
-    console.log(26, event);
     if ((event.keyCode === 13 && event.ctrlKey === true) || (event.keyCode === 13 && event.metaKey === true)) {
-      console.log(27, this.commentForm.value.commentDescription);
-      console.log(28, this.currentChapter);
       this.currentChapter.comments.push(this.commentForm.value.commentDescription);
       this.commentForm.controls['commentDescription'].setValue('');
       this.pushToLocalStorage();
@@ -49,7 +46,6 @@ export class AppComponent implements OnInit {
   }
 
   addChapter(): void {
-    console.log(18, this.chapterForm.value.chapterInput);
     this.chapterList.push(
       {
         title: this.chapterForm.value.chapterInput,
@@ -57,15 +53,9 @@ export class AppComponent implements OnInit {
         comments: []
       }
     );
-    console.log(42, this.chapterList[this.chapterList.length - 1]);
-
     this.currentChapter = this.chapterList[this.chapterList.length - 1];
-    console.log(34, this.currentChapter);
-
-    console.log(35, this.chapterForm.controls);
     this.chapterForm.controls['chapterInput'].setValue('');
     this.pushToLocalStorage();
-    console.log(19, this.chapterList);
   }
 
   ngOnInit(): void {

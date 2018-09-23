@@ -4,7 +4,7 @@
   <div class="row central-block">
     <div class="col-sm-6 left-block">
       <h2>Items</h2>
-      <form class="settings__user-block" [formGroup]="chapterForm" (ngSubmit)="addChapter()">
+      <form class="settings__user-block" [formGroup]="chapterForm">
         <input type="text" formControlName="chapterInput" class="comment-input" placeholder="Type name here..." />
         <button class="submit-button" (click)="addChapter()"> Add new </button>
       </form>
@@ -26,7 +26,6 @@
         <div *ngFor="let comment of currentChapter.comments ">
           <div class="comment-center">
             <div class="squere">
-              {{currentChapter.comments.indexOf(comment)}}
               <div class="main-squere" [ngClass]="{'orange-color': currentChapter.comments.indexOf(comment) % 2 == 0}">
               </div>
             </div>
@@ -34,12 +33,17 @@
               {{comment}}
             </div>
           </div>
-
         </div>
-        <form (keydown)="addComment($event)" class="settings__user-block" [formGroup]="commentForm" (ngSubmit)="addComment()">
-          <textarea formControlName="commentDescription">Hello, Froala!</textarea>
-        </form>
+        <div class="comment-center no-border">
+          <div class="squere">
+            <div class="main-squere grey"></div>
+          </div>
+          <div class="comment">
+            <form class="textarea-form" (keydown)="addComment($event)" [formGroup]="commentForm" (ngSubmit)="addComment()">
+              <textarea class="textarea-block" formControlName="commentDescription"></textarea>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
